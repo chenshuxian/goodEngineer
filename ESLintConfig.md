@@ -26,7 +26,7 @@ ESLint 正式设定
    "ecmaFeatures":{
        modules:true
    }
-} 
+}
 ```   
 
 2.解析器的配置 (Specifying Parser)  
@@ -50,12 +50,12 @@ ESLint 正式设定
 >> no-undef 規則在我們使用沒有在同一文件中定義的變量的时候会报错，当我们使用全局变量的时候，我们必须对额外的全局变量进行配置，避免 no-undef 误会。我们可已经由以下例子进行设定:  
 
 ```
-       {
-          globals:{
-            var:  true
-            var2: false          
-          }
-       }  
+{
+  globals:{
+    var:  true        
+    var2: false          
+  }
+}  
 ```  
 
 5.引入插件 (Specifying Plugins)  
@@ -63,12 +63,12 @@ ESLint 正式设定
 >> 插入第三方插件前，需先通过 npm 安装所需插件。通过 plugins 键来指定插件，插件前缀可省略，如例子:  
 
 ```
-        {
-            plugins:{
-              plugin1,
-              eslint-plugin-plugin2
-            }
-        } 
+{
+  plugins:{
+    plugin1,
+    eslint-plugin-plugin2
+  }
+}
 ```  
 
 6.配置 Rules (Configuring Rules)  
@@ -76,28 +76,28 @@ ESLint 正式设定
 >> **重要的东西往往放在最后，也就是 Rules 配置文件的核心部分，在配置时除了级别 0 (off)、1 (warning)、2 (error)外，还可以指定其他选项，如例子:  
 
 ```
-        {
-            rules:{
-              eqeqeq: 0,
-              curly: 2,
-              quotes: {2,"double"}      
-            }
-        }
+{
+  rules:{
+    eqeqeq: 0,
+    curly: 2,
+    quotes: {2,"double"}      
+  }
+}
 ```  
 
 如果一条 rule 是经由 plugins 引入的，那配置 id 前面要加 plugin 名和 "/"，如例子:  
 
 ```
-        {
-          plugins:{
-            plugin1
-          },
-          rules:{
-            plugin1/test1: 2
-          }
-        }
-         **注意在进行制定 plugin 中的 rules 时，我们需要把 plugin 前缀去除。
-         **所有的 rules ， default value: 2。
+{
+  plugins:{
+    plugin1
+  },
+  rules:{
+    plugin1/test1: 2
+  }
+}
+**注意在进行制定 plugin 中的 rules 时，我们需要把 plugin 前缀去除。
+**所有的 rules ， default value: 2。
 ```  
 
 7.配置文件扩展 (Extending Configuration Files)  
@@ -105,23 +105,22 @@ ESLint 正式设定
 >> 如果想扩展其他配置文件，如例子:  
 
 ```
-       {
-          extends: [
-            "./xxx/xxx/.eslintrc",
-            // Override eslintrc
-            "./xxx/xxx/.eslintrc2",
-            // Override eslintrc2
-            "./xxx/xxx/.eslintrc3",
-          rules: {
-            // 此处会覆写父类中相同的 rule
-            eqeqeq: 1
-          }
-       }
-       ** extends 可引用 github 共享配置包，首先要通过 npm 安装配置包文件，引用时前缀也可去除。
+{
+  extends: [
+    "./xxx/xxx/.eslintrc",
+    // Override eslintrc
+    "./xxx/xxx/.eslintrc2",
+    // Override eslintrc2
+    "./xxx/xxx/.eslintrc3",
+    rules: {
+      // 此处会覆写父类中相同的 rule
+      eqeqeq: 1
+    }
+}
+** extends 可引用 github 共享配置包，首先要通过 npm 安装配置包文件，引用时前缀也可去除。
 ```  
 
 8.制定 ESLint 忽略检测文件或路径  
 
 >> 可通过生成一个 .eslintignore 文件来设定，设定中每一行代码代表一忽略的路径。  
 ESLint 运行前会先查找当前文件中的 .eslintignore ，注意一个文件中只能有一个 .eslintignore 文件。
-
