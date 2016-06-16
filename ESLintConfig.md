@@ -18,7 +18,7 @@ ESLint 配置的主要内容
 
 ESLint 正式设定
 ----
-1. Specifying language Options  
+1.Specifying language Options  
 
 >> .eslintrc 预设支持 ECMAScript5，如想改为支持ECMAScript2016 可以在 ecmaFeatures 属性进行设置，当我们在环境配置时设定 es6: true，我们就已拥有 ECMAScript2015 的新特性了，所以只要在加个模块就可了。  
 ```
@@ -28,13 +28,15 @@ ESLint 正式设定
    }
 } 
 ```   
-2. 解析器的配置 (Specifying Parser)  
+
+2.解析器的配置 (Specifying Parser)  
 预设为 Espress 解析器，可以修改，但需要满足一些条件，在此我们就不说了。  
-3. 环境设定  
+3.环境设定  
+
 >> ESLint 提供了许多，我们可以依我们项目进行配置。  
 举个例子:  
 ```
-{    
+>> {    
   "env":{
        browser: true,
        node: true,
@@ -43,8 +45,10 @@ ESLint 正式设定
 }
 ```  
 
-4. 指定额外全局变量 (Specifying Globals)  
+4.指定额外全局变量 (Specifying Globals)  
+
 >> no-undef 規則在我們使用沒有在同一文件中定義的變量的时候会报错，当我们使用全局变量的时候，我们必须对额外的全局变量进行配置，避免 no-undef 误会。我们可已经由以下例子进行设定:  
+
 ```
        {
           globals:{
@@ -52,9 +56,12 @@ ESLint 正式设定
             var2: false          
           }
        }  
-```
-5. 引入插件 (Specifying Plugins)
->>> 插入第三方插件前，需先通过 npm 安装所需插件。通过 plugins 键来指定插件，插件前缀可省略，如例子:  
+```  
+
+5.引入插件 (Specifying Plugins)  
+
+>> 插入第三方插件前，需先通过 npm 安装所需插件。通过 plugins 键来指定插件，插件前缀可省略，如例子:  
+
 ```
         {
             plugins:{
@@ -62,9 +69,12 @@ ESLint 正式设定
               eslint-plugin-plugin2
             }
         } 
-```
-6. 配置 Rules (Configuring Rules)
->>> **重要的东西往往放在最后，也就是 Rules 配置文件的核心部分，在配置时除了级别 0 (off)、1 (warning)、2 (error)外，还可以指定其他选项，如例子:  
+```  
+
+6.配置 Rules (Configuring Rules)  
+
+>> **重要的东西往往放在最后，也就是 Rules 配置文件的核心部分，在配置时除了级别 0 (off)、1 (warning)、2 (error)外，还可以指定其他选项，如例子:  
+
 ```
         {
             rules:{
@@ -73,8 +83,10 @@ ESLint 正式设定
               quotes: {2,"double"}      
             }
         }
-```
+```  
+
 如果一条 rule 是经由 plugins 引入的，那配置 id 前面要加 plugin 名和 "/"，如例子:  
+
 ```
         {
           plugins:{
@@ -86,9 +98,12 @@ ESLint 正式设定
         }
          **注意在进行制定 plugin 中的 rules 时，我们需要把 plugin 前缀去除。
          **所有的 rules ， default value: 2。
-```
-7. 配置文件扩展 (Extending Configuration Files)
->>> 如果想扩展其他配置文件，如例子:  
+```  
+
+7.配置文件扩展 (Extending Configuration Files)  
+
+>> 如果想扩展其他配置文件，如例子:  
+
 ```
        {
           extends: [
@@ -103,8 +118,10 @@ ESLint 正式设定
           }
        }
        ** extends 可引用 github 共享配置包，首先要通过 npm 安装配置包文件，引用时前缀也可去除。
-```
-8. 制定 ESLint 忽略检测文件或路径
+```  
+
+8.制定 ESLint 忽略检测文件或路径  
+
 >> 可通过生成一个 .eslintignore 文件来设定，设定中每一行代码代表一忽略的路径。  
 ESLint 运行前会先查找当前文件中的 .eslintignore ，注意一个文件中只能有一个 .eslintignore 文件。
 
