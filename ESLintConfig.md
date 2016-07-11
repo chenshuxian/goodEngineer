@@ -123,4 +123,8 @@ ESLint 正式设定
 8.制定 ESLint 忽略检测文件或路径  
 
 >> 可通过生成一个 .eslintignore 文件来设定，设定中每一行代码代表一忽略的路径。  
-ESLint 运行前会先查找当前文件中的 .eslintignore ，注意一个文件中只能有一个 .eslintignore 文件。
+ESLint 运行前会先查找当前文件中的 .eslintignore ，注意一个文件中只能有一个 .eslintignore 文件。  
+
+参考文献
+----
+[ESLint](https://github.com/Jocs/ESLint_docs/blob/master/Configration/ESLint_configration.md)
