@@ -3,7 +3,7 @@ webpack 問題集:
 ----
 1. 如何將 jquery 其他的 plugins 放到 CommonsChunkPlugin 中。  
 ```
-  一般在 chunks 中會自動對映entry 中的名字，然後預設會從 node_modules
+  一般在 chunks 中會自動對映 entry 中的名字，然後預設會從 node_modules
   中找出，若不是 npm 內有的模塊，就需要用 alias 自行定義，這時在進行
   chunk 時就會到我們所指定的資料夾下去找出，然後進行封裝。
   new webpack.optimize.CommonsChunkPlugin({
@@ -48,4 +48,13 @@ ProvidePlugin 替換時還是會失敗。
       }),
   ]
 
+```
+3. webpack breakpoint 無法使用
+```
+妖瘦生為一個前端工程師，breakpoint 等同廢人，但好在找到解決方法了，
+解決方法如下:
+//webpack.config.js 中加這個就行了，但只能在 chrome 上用。
+//網路也有很多人碰到同樣問題，可上以下網址找自己的解答:
+//https://github.com/webpack/webpack/issues/2145
+devtool: '#inline-source-map'
 ```
