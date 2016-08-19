@@ -20,6 +20,6 @@
 chmod 775 nodeJS
 3. 加入自动启动  
 chkconfig --add nodeJS  
-以后启动脚本命令如下
+4. 以后启动脚本命令如下  
 service nodeJS start  
 service nodeJS stop
